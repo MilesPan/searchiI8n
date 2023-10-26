@@ -1,7 +1,8 @@
 {
-  "name": "search-i18n",
-  "displayName": "search-i18n",
-  "description": "通过搜索文字快速定位到代码位置",
+  "name": "zw-search-18n",
+  "displayName": "searchI18n",
+  "description": "国际化项目中通过搜索翻译后的英文快速定位到代码位置",
+  "publisher": "pdy",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.83.0"
