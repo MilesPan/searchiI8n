@@ -134,11 +134,11 @@ function getKeys(
     const filePath = folderPaths[i];
     // ...\src\locale\en\basicSet.json => basic
     const fileName = filePath.split("\\").at(-1)?.split(".")[0];
-    // json的文件内容，将其通过,号分隔就是每一行的内容
-    // '\r\n  "tips8": "Upload format does not meet requirements"'[]
+    // json的文件内容，将其通过换行符号分隔就是每一行的内容
+    // 用\n分割，因为LF文件中换行符是\n，CRLF文件中换行符是\r\n
     const contentRows: string[] = fs
       .readFileSync(filePath, "utf-8")
-      .split("\r\n");
+      .split("\n");
     for (let j = 0; j < contentRows.length; j++) {
       const rowStr = contentRows[j];
       const matchRes = rowStr.match(/"([^"]+)": "([^"]+)"/);
