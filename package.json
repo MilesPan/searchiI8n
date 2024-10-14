@@ -42,7 +42,8 @@
         "command": "extension.searchI18n",
         "key": "ctrl+shift+3",
         "mac": "ctrl+shift+3",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus",
+        "whenDocs": "https://geekdaxue.co/read/VS-Code-Extension-doc-ZH/docs-references-when-clause-contexts.md"
       }
     ],
     "languages": [
@@ -56,6 +57,7 @@
       }
     ],
     "capabilities": {
+      "note": "声明扩展具有的特殊能力",
       "completionProvider": {
         "resolveProvider": "true",
         "triggerCharacters": [

@@ -44,7 +44,7 @@ async function getLocaleFolder(langFolder: "en" | "cn") {
   }
 
   // 翻译文件夹
-  // 直接写死 反正也没人用
+  // TODO: 路径改为配置项
   const localeFolderPath = path.join(rootPath.uri.fsPath, "src/locale");
   const targetFolderPath = path.join(localeFolderPath, langFolder);
   const targetFolderPaths = getAllFiles(targetFolderPath);
@@ -57,7 +57,6 @@ async function getLocaleFolder(langFolder: "en" | "cn") {
 
 function getKeys(
   searchValue: string | undefined,
-  folder: [string, vscode.FileType],
   folderPaths: string[]
 ) {
   if (!searchValue) {
@@ -95,8 +94,6 @@ export  function setupSearchI18n(context: vscode.ExtensionContext) {
     async () => {
       // 获取文件夹
       const locale = await getLocaleFolder("en");
-      // 英语翻译的文件夹
-      const enFolder = locale?.targetFolder;
       // 英语翻译的文件路径数组
       const enFolderPaths = locale?.targetFolderPaths;
 
@@ -107,7 +104,7 @@ export  function setupSearchI18n(context: vscode.ExtensionContext) {
         value: "", // 设置默认值
       });
       // 根据查询的内容查到的key (可能有多个)
-      const searchKeys = getKeys(searchValue, enFolder!, enFolderPaths!);
+      const searchKeys = getKeys(searchValue, enFolderPaths!);
       if (!searchKeys || !searchKeys.length) {
         return;
       }
@@ -146,8 +143,6 @@ export  function setupSearchI18n(context: vscode.ExtensionContext) {
         new vscode.Range(firstMatchPosition, firstMatchPosition)
       );
 
-      // 这里执行在 Ctrl+Shift+0 快捷键触发时需要执行的操作
-      // vscode.window.showInformationMessage("searchValue");
     }
   );
 
