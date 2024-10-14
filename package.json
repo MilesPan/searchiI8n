@@ -4,7 +4,11 @@
   "description": "国际化项目中通过搜索翻译后的英文快速定位到代码位置",
   "publisher": "pdy",
   "icon": "images/panda.png",
-  "version": "0.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MilesPan/searchiI8n"
+  },
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.83.0"
   },

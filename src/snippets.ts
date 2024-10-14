@@ -106,7 +106,7 @@ export class I18nManager {
   }
 }
 
-export function setupSnipeets(context: vscode.ExtensionContext) {
+export function setupSnippets(context: vscode.ExtensionContext) {
   const i18nManager = new I18nManager();
 
   vscode.workspace.workspaceFolders?.forEach((folder) => {
