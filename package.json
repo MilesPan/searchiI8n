@@ -11,13 +11,26 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:vue",
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
   "contributes": {
+    "configuration": {
+      "properties": {
+        "i18nHelper.translationFunction": {
+          "type": "string",
+          "default": "t",
+          "description": "翻译函数名"
+        }
+      }
+    },
     "commands": [
       {
         "command": "extension.searchI18n",
-        "title": "searchI18n"
+        "title": "Search I18n"
       }
     ],
     "keybindings": [
@@ -27,7 +40,25 @@
         "mac": "ctrl+shift+3",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "languages": [
+      {
+        "id": "vue",
+        "extensions": [
+          ".vue",
+          ".ts",
+          ".js"
+        ]
+      }
+    ],
+    "capabilities": {
+      "completionProvider": {
+        "resolveProvider": "true",
+        "triggerCharacters": [
+          "."
+        ]
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
